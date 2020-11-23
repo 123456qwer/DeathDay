@@ -1,0 +1,6 @@
+framework module Pods_DeathDay {
+  umbrella header "Pods-DeathDay-umbrella.h"
+
+  export *
+  module * { export * }
+}
