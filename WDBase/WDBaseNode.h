@@ -17,7 +17,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy)NSString *direction;
 
 
+/// 人物移动
+@property (nonatomic,strong)NSMutableDictionary *moveDic;
+
+
+/// 初始化人物：提供人物前缀 比如 user_xxx; 提供user
++ (WDBaseNode *)spriteNodeWithName:(NSString *)name;
+
 - (void)realBackGroundWithColor:(UIColor *)color;
+- (void)addShadow1;
 
 @end
 

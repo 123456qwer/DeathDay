@@ -10,22 +10,50 @@
 #import "WDCalculateTool.h"
 @implementation WDBaseScene
 
-{
-    NSMutableDictionary *_moveDic;
-}
+
 - (void)didMoveToView:(SKView *)view
 {
 
-    /*
-     屏幕宽度 ： 1792 828
-     BG     ： 816 624   -> 2.19...   1792  1370   一半 407
-     */
+    self.name = NSStringFromClass([self class]);
+    self.physicsWorld.contactDelegate = self;
+
+    
+    [self setMap];
+    
+    [self setPerson];
+
+    
+    [self performSelector:@selector(canMoveA) withObject:nil afterDelay:0.8];
+}
+
+
+/// 设置玩家相关信息
+- (void)setPerson{
+    
+    _personNode = [WDBaseNode spriteNodeWithName:@"user"];
+    _personNode.position = CGPointMake(0, 0);
+    _personNode.name = @"person";
+    [_bgNode addChild:_personNode];
+    
+    [_personNode addShadow1];
+    
+    SKPhysicsBody *body = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(_personNode.size.width, _personNode.size.height) center:CGPointMake(0, 0)];
+    body.allowsRotation = NO;
+    body.affectedByGravity = NO;
+    body.categoryBitMask = PLAYER_CATEGORY;
+    body.collisionBitMask = PLAYER_COLLISION;
+    body.contactTestBitMask = PLAYER_CONTACT;
+       
+    _personNode.physicsBody = body;
+}
+
+/// 设置地图相关信息
+- (void)setMap{
     
     CGFloat screenWidth = kScreenWidth * 2.0;
     CGFloat screenHeight = kScreenHeight * 2.0;
     
     self.size = CGSizeMake(screenWidth, screenHeight);
-    
     _bgNode = (WDBaseNode *)[self childNodeWithName:@"bgNode"];
     
     CGFloat final = 1;
@@ -45,29 +73,6 @@
         
         final = scale;
     }
-    
-    
-    
-    
-    NSArray *personTextureArr = [WDCalculateTool arrWithLine:4 arrange:3 imageSize:CGSizeMake(48 * 3.0, 48 * 4.0) subImageCount:12 image:[UIImage imageNamed:@"m.png"]];
-    
-    _moveDic = [NSMutableDictionary dictionary];
-    NSArray *key = @[@"down",@"left",@"right",@"up"];
-    int a = 0;
-    for (int i = 0; i < key.count; i ++) {
-        
-        NSArray *sub = [personTextureArr subarrayWithRange:NSMakeRange(a, 3)];
-        [_moveDic setObject:sub forKey:key[i]];
-         a += 3;
-    }
-    
-    _personNode = [WDBaseNode spriteNodeWithTexture:personTextureArr[0]];
-    //_personNode = [WDBaseNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(50, 50)];
-    _personNode.position = CGPointMake(0, 0);
-    _personNode.anchorPoint = CGPointMake(0, 0);
-    _personNode.xScale = 1.5;
-    _personNode.yScale = 1.5;
-    [_bgNode addChild:_personNode];
     
     CGFloat bgWidth  = _bgNode.size.width;
     CGFloat bgHeight = _bgNode.size.height;
@@ -110,17 +115,22 @@
     _map_x = xArr;
     _map_y = yArr;
     
-    NSLog(@"%lf",_bgNode.size.width);
     
     _moveLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(moveAction)];
     [_moveLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-    
+}
+
+- (void)canMoveA{
+    self.canGo = YES;
 }
 
 - (void)moveActionWithDirection:(NSString *)direction position:(CGPoint)point
 {
-    
-    NSLog(@"%@",direction);
+
+    if (!self.canGo) {
+        return;
+    }
+    //NSLog(@"%@",direction);
     
     if (!direction) {
         direction = @"up";
@@ -132,13 +142,12 @@
     
     _personNode.position = [WDCalculateTool calculateMaxMoveXAndY:movePoint maxX:self.bgNode.size.width maxY:self.bgNode.size.height personSize:self.personNode.size];
     _personNode.position = movePoint;
-    
     if (![_personNode.direction isEqualToString:direction]) {
             _personNode.direction = direction;
 
         [_personNode removeActionForKey:@"move"];
 
-        SKAction *moveA = [SKAction animateWithTextures:_moveDic[direction] timePerFrame:0.1];
+        SKAction *moveA = [SKAction animateWithTextures:_personNode.moveDic[direction] timePerFrame:0.15];
         SKAction *rep = [SKAction repeatActionForever:moveA];
         [_personNode runAction:rep withKey:@"move"];
     }
@@ -146,8 +155,7 @@
    
     
     //下 左 右 上
-    
-    NSLog(@"personX:%lf personY:%lf",movePoint.x,movePoint.y);
+    //NSLog(@"personX:%lf personY:%lf",movePoint.x,movePoint.y);
 }
 
 - (void)moveAction{
@@ -157,17 +165,92 @@
     NSInteger x = _bgNode.position.x;
     NSInteger y = _bgNode.position.y;
     
-    if (indexX <= _map_x.count - 1 && indexX >= 0) {
+    if (indexX <= _map_x.count - 1 && indexX >= 0 && _map_x.count != 0) {
         x = [_map_x[indexX]integerValue];
     }
     
-    if (indexY <= _map_y.count - 1 && indexY >= 0) {
+    if (indexY <= _map_y.count - 1 && indexY >= 0 && _map_y.count != 0) {
        y = [_map_y[indexY]integerValue];
     }
      
-    
     _bgNode.position = CGPointMake(x, y);
 }
+
+
+- (void)createWallWithCount:(NSInteger)wallCount
+{
+    for (int i = 0; i < wallCount; i ++) {
+        NSString *wallName = [NSString stringWithFormat:@"wall%d",i + 1];
+        SKSpriteNode *wall = (SKSpriteNode *)[self.bgNode childNodeWithName:wallName];
+        wall.alpha = 0;
+        
+        [self setWallPhysicyBody:wall];
+    }
+}
+
+- (void)createDoorNodeWithName:(NSString *)name
+{
+    SKSpriteNode *door = (SKSpriteNode *)[self.bgNode childNodeWithName:name];
+    door.alpha = 0;
+    [self setMonsterPhysicyBody:door];
+}
+
+- (void)setWallPhysicyBody:(SKSpriteNode *)node
+{
+    SKPhysicsBody *body = [SKPhysicsBody bodyWithRectangleOfSize:node.size];
+    body.allowsRotation = NO;
+    body.affectedByGravity = NO;
+    body.categoryBitMask = WALL_CATEGORY;
+    body.collisionBitMask = WALL_COLLISION;
+    body.contactTestBitMask = WALL_CONTACT;
+    node.physicsBody = body;
+}
+
+- (void)setMonsterPhysicyBody:(SKSpriteNode *)node
+{
+    SKPhysicsBody *body = [SKPhysicsBody bodyWithRectangleOfSize:node.size];
+    body.allowsRotation = NO;
+    body.affectedByGravity = NO;
+    body.categoryBitMask = MONSTER_CATEGORY;
+    body.collisionBitMask = MONSTER_COLLISION;
+    body.contactTestBitMask = MONSTER_CONTACT;
+    node.physicsBody = body;
+}
+
+
+- (SKSpriteNode *)nodeWithNodeName:(NSString *)name
+{
+    SKSpriteNode *childNode = (SKSpriteNode *)[self.bgNode childNodeWithName:name];
+    return childNode;
+}
+
+- (void)releaseAction
+{
+    if (_moveLink) {
+        [_moveLink invalidate];
+        _moveLink = nil;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 - (void)touchDownAtPoint:(CGPoint)pos {
 }
