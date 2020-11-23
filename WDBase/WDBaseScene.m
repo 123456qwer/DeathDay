@@ -142,6 +142,7 @@
     
     _personNode.position = [WDCalculateTool calculateMaxMoveXAndY:movePoint maxX:self.bgNode.size.width maxY:self.bgNode.size.height personSize:self.personNode.size];
     _personNode.position = movePoint;
+    _personNode.zPosition = kScreenHeight * 2.0 - movePoint.y;
     if (![_personNode.direction isEqualToString:direction]) {
             _personNode.direction = direction;
 
@@ -153,7 +154,6 @@
     }
     
    
-    
     //下 左 右 上
     //NSLog(@"personX:%lf personY:%lf",movePoint.x,movePoint.y);
 }
