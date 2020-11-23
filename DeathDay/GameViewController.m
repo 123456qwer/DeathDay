@@ -28,6 +28,8 @@
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
     
+
+    
 }
 
 - (BOOL)shouldAutorotate {

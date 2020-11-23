@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,10 @@
 		04D867F9256B412B00909ACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D867F8256B412B00909ACD /* Assets.xcassets */; };
 		04D867FC256B412C00909ACD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D867FA256B412C00909ACD /* LaunchScreen.storyboard */; };
 		04D867FF256B412C00909ACD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D867FE256B412C00909ACD /* main.m */; };
+		04D8680A256B461200909ACD /* WDCalculateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D86808256B461200909ACD /* WDCalculateTool.m */; };
+		04D8680D256B461A00909ACD /* WDMoveOpeartionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8680C256B461A00909ACD /* WDMoveOpeartionView.m */; };
+		04D86813256B473600909ACD /* WDBaseNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8680F256B473600909ACD /* WDBaseNode.m */; };
+		04D86814256B473600909ACD /* WDBaseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D86810256B473600909ACD /* WDBaseScene.m */; };
 		0F2088C7819856FB0A4503FB /* Pods_DeathDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB09EF760B89EFBDD508E418 /* Pods_DeathDay.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +38,15 @@
 		04D867FB256B412C00909ACD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04D867FD256B412C00909ACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04D867FE256B412C00909ACD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04D86807256B444200909ACD /* WDPCH.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDPCH.pch; sourceTree = "<group>"; };
+		04D86808256B461200909ACD /* WDCalculateTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDCalculateTool.m; sourceTree = "<group>"; };
+		04D86809256B461200909ACD /* WDCalculateTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDCalculateTool.h; sourceTree = "<group>"; };
+		04D8680B256B461A00909ACD /* WDMoveOpeartionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDMoveOpeartionView.h; sourceTree = "<group>"; };
+		04D8680C256B461A00909ACD /* WDMoveOpeartionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDMoveOpeartionView.m; sourceTree = "<group>"; };
+		04D8680F256B473600909ACD /* WDBaseNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDBaseNode.m; sourceTree = "<group>"; };
+		04D86810256B473600909ACD /* WDBaseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDBaseScene.m; sourceTree = "<group>"; };
+		04D86811256B473600909ACD /* WDBaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDBaseScene.h; sourceTree = "<group>"; };
+		04D86812256B473600909ACD /* WDBaseNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDBaseNode.h; sourceTree = "<group>"; };
 		B5540CACBBCA5A609C5C8892 /* Pods-DeathDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeathDay.debug.xcconfig"; path = "Target Support Files/Pods-DeathDay/Pods-DeathDay.debug.xcconfig"; sourceTree = "<group>"; };
 		BD44FB8DB4405CB897F06A39 /* Pods-DeathDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeathDay.release.xcconfig"; path = "Target Support Files/Pods-DeathDay/Pods-DeathDay.release.xcconfig"; sourceTree = "<group>"; };
 		EB09EF760B89EFBDD508E418 /* Pods_DeathDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeathDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +67,9 @@
 		04D867DC256B412700909ACD = {
 			isa = PBXGroup;
 			children = (
+				04D8680E256B466B00909ACD /* WDBase */,
+				04D86806256B440400909ACD /* WDOpeartionView */,
+				04D86805256B43CC00909ACD /* WDTool */,
 				04D867E7256B412700909ACD /* DeathDay */,
 				04D867E6256B412700909ACD /* Products */,
 				B1D6E76457BB97F26FEA6C12 /* Pods */,
@@ -89,6 +105,37 @@
 			path = DeathDay;
 			sourceTree = "<group>";
 		};
+		04D86805256B43CC00909ACD /* WDTool */ = {
+			isa = PBXGroup;
+			children = (
+				04D86809256B461200909ACD /* WDCalculateTool.h */,
+				04D86808256B461200909ACD /* WDCalculateTool.m */,
+				04D86807256B444200909ACD /* WDPCH.pch */,
+			);
+			name = WDTool;
+			path = DeathDay/WDTool;
+			sourceTree = "<group>";
+		};
+		04D86806256B440400909ACD /* WDOpeartionView */ = {
+			isa = PBXGroup;
+			children = (
+				04D8680B256B461A00909ACD /* WDMoveOpeartionView.h */,
+				04D8680C256B461A00909ACD /* WDMoveOpeartionView.m */,
+			);
+			path = WDOpeartionView;
+			sourceTree = "<group>";
+		};
+		04D8680E256B466B00909ACD /* WDBase */ = {
+			isa = PBXGroup;
+			children = (
+				04D86812256B473600909ACD /* WDBaseNode.h */,
+				04D8680F256B473600909ACD /* WDBaseNode.m */,
+				04D86811256B473600909ACD /* WDBaseScene.h */,
+				04D86810256B473600909ACD /* WDBaseScene.m */,
+			);
+			path = WDBase;
+			sourceTree = "<group>";
+		};
 		599AC57AF1703DEB2ABD6E6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +150,6 @@
 				B5540CACBBCA5A609C5C8892 /* Pods-DeathDay.debug.xcconfig */,
 				BD44FB8DB4405CB897F06A39 /* Pods-DeathDay.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -224,8 +270,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				04D867F1256B412700909ACD /* GameScene.m in Sources */,
+				04D8680A256B461200909ACD /* WDCalculateTool.m in Sources */,
 				04D867F4256B412700909ACD /* GameViewController.m in Sources */,
 				04D867FF256B412C00909ACD /* main.m in Sources */,
+				04D86814256B473600909ACD /* WDBaseScene.m in Sources */,
+				04D86813256B473600909ACD /* WDBaseNode.m in Sources */,
+				04D8680D256B461A00909ACD /* WDMoveOpeartionView.m in Sources */,
 				04D867EA256B412700909ACD /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +419,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BT8UTD5NYK;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = DeathDay/WDTool/WDPCH.pch;
 				INFOPLIST_FILE = DeathDay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -387,6 +439,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BT8UTD5NYK;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = DeathDay/WDTool/WDPCH.pch;
 				INFOPLIST_FILE = DeathDay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

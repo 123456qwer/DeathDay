@@ -1,0 +1,21 @@
+//
+//  WDPCH.pch
+//  DeathDay
+//
+//  Created by Mac on 2020/11/23.
+//  Copyright © 2020 Macdddd. All rights reserved.
+//
+
+#ifndef WDPCH_pch
+#define WDPCH_pch
+
+
+///宏定义
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+
+
+
+
+
+#endif /* WDPCH_pch */
