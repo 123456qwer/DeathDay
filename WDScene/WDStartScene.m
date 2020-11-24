@@ -23,18 +23,38 @@
     self.personNode.xScale = 1.1;
     self.personNode.yScale = 1.1;
     
-    SKSpriteNode *startNode = [self nodeWithNodeName:@"start"];
-    startNode.alpha = 0;
-    self.personNode.position = startNode.position;
     
+    SKSpriteNode *startNode1 = [self nodeWithNodeName:@"start"];
+    SKSpriteNode *startNode2 = [self nodeWithNodeName:@"start2"];
+    startNode1.alpha = 0;
+    startNode2.alpha = 0;
+
+    if (self.isDeadtToStartScene) {
+        
+        [self createNpcNode];
+        self.personNode.position = startNode1.position;
+        
+    }else{
+        
+        [self createNpcNode];
+        self.personNode.position = startNode2.position;
+        self.personNode.texture = self.personNode.moveDic[@"up"][0];
+    }
+}
+
+- (void)setBgChildNodePhybody{
     
     [self createWallWithCount:10];
     [self createDoorNodeWithName:@"door1"];
     
-    
-    [self createNpcNode];
+    NSArray *names = @[@"bed1",@"bed2",@"desk1",@"desk2",@"chair1",@"chair2",@"box1",@"box2",@"desk3",@"desk4",@"bathtub",@"wc"];
+    for (NSString *name in names) {
+        SKSpriteNode *node = [self nodeWithNodeName:name];
+        node.alpha = 0;
+        [self setContactWallPhysicyBody:node];
+    }
+   
 }
-
 
 
 - (void)createNpcNode{
@@ -46,36 +66,47 @@
     [self.bgNode addChild:_npcNode];
     [_npcNode addShadow1];
     
-    SKSpriteNode *door = (SKSpriteNode *)[self.bgNode childNodeWithName:@"door1"];
-    _npcNode.position = door.position;
+    if (self.isDeadtToStartScene) {
+        SKSpriteNode *door = (SKSpriteNode *)[self.bgNode childNodeWithName:@"door1"];
+        _npcNode.position = door.position;
 
-    
-    SKSpriteNode *startNode = [self nodeWithNodeName:@"start"];
+        
+        SKSpriteNode *startNode = [self nodeWithNodeName:@"start"];
 
-    
-    SKAction *moveAction = [SKAction moveTo:CGPointMake(_npcNode.position.x, startNode.position.y) duration:1.4];
-    SKAction *upAction = [SKAction animateWithTextures:_npcNode.moveDic[@"up"] timePerFrame:0.25];
-    SKAction *rep = [SKAction repeatAction:upAction count:2];
-    SKAction *gr = [SKAction group:@[rep,moveAction]];
-    
-    __weak WDBaseNode *node = _npcNode;
-    
-    [_npcNode runAction:gr completion:^{
-       
-        SKAction *moveAction = [SKAction moveTo:CGPointMake(startNode.position.x + node.size.width, startNode.position.y) duration:1.4];
-        SKAction *upAction = [SKAction animateWithTextures:node.moveDic[@"left"] timePerFrame:0.25];
+        
+        SKAction *moveAction = [SKAction moveTo:CGPointMake(_npcNode.position.x, startNode.position.y) duration:1.4];
+        SKAction *upAction = [SKAction animateWithTextures:_npcNode.moveDic[@"up"] timePerFrame:0.25];
         SKAction *rep = [SKAction repeatAction:upAction count:2];
         SKAction *gr = [SKAction group:@[rep,moveAction]];
         
-        [node runAction:gr completion:^{
-            node.zPosition = kScreenHeight * 2.0 - node.position.y;
-            node.direction = @"left";
-            SKAction *tex = [SKAction animateWithTextures:node.moveDic[@"left"] timePerFrame:0.25];
-            SKAction *rep = [SKAction repeatActionForever:tex];
-            [node runAction:rep withKey:@"move"];
-            [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(observeAction:) userInfo:nil repeats:YES];
+        __weak WDBaseNode *node = _npcNode;
+        
+        [_npcNode runAction:gr completion:^{
+           
+            SKAction *moveAction = [SKAction moveTo:CGPointMake(startNode.position.x - node.size.width, startNode.position.y) duration:1.4];
+            SKAction *upAction = [SKAction animateWithTextures:node.moveDic[@"right"] timePerFrame:0.25];
+            SKAction *rep = [SKAction repeatAction:upAction count:2];
+            SKAction *gr = [SKAction group:@[rep,moveAction]];
+            
+            [node runAction:gr completion:^{
+                node.zPosition = kScreenHeight * 2.0 - node.position.y;
+                node.direction = @"right";
+                SKAction *tex = [SKAction animateWithTextures:node.moveDic[@"right"] timePerFrame:0.25];
+                SKAction *rep = [SKAction repeatActionForever:tex];
+                [node runAction:rep withKey:@"move"];
+                [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(observeAction:) userInfo:nil repeats:YES];
+            }];
         }];
-    }];
+    }else{
+        
+        SKSpriteNode *npcStart = [self nodeWithNodeName:@"npcStart"];
+        npcStart.alpha = 0;
+        _npcNode.position = npcStart.position;
+        _npcNode.zPosition = kScreenHeight * 2.0 - npcStart.position.y;
+
+         [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(observeAction:) userInfo:nil repeats:YES];
+    }
+    
     
 }
 

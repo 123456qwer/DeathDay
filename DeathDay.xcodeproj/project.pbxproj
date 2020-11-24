@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04D2663D256C9E3600EA6837 /* user_move.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D2663B256C9E3500EA6837 /* user_move.png */; };
+		04D2663E256C9E3600EA6837 /* npc1_move.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D2663C256C9E3600EA6837 /* npc1_move.png */; };
+		04D26656256CB84A00EA6837 /* chest1.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D26654256CB84A00EA6837 /* chest1.png */; };
+		04D26657256CB84A00EA6837 /* chest2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D26655256CB84A00EA6837 /* chest2.png */; };
+		04D2665B256CCEF300EA6837 /* WDCorridor1Scene.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D2665A256CCEF300EA6837 /* WDCorridor1Scene.png */; };
 		04D867EA256B412700909ACD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D867E9256B412700909ACD /* AppDelegate.m */; };
 		04D867EE256B412700909ACD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 04D867ED256B412700909ACD /* Actions.sks */; };
 		04D867F4256B412700909ACD /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D867F3256B412700909ACD /* GameViewController.m */; };
@@ -21,13 +26,11 @@
 		04D86818256B48E600909ACD /* WDStartScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D86817256B48E600909ACD /* WDStartScene.m */; };
 		04D8681A256B491800909ACD /* WDStartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 04D86819256B491800909ACD /* WDStartScene.sks */; };
 		04D86820256B4B3500909ACD /* WDUserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8681F256B4B3500909ACD /* WDUserInformation.m */; };
-		04D86828256B531D00909ACD /* user_move.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D86827256B531D00909ACD /* user_move.png */; };
 		04D8682C256B539000909ACD /* attackOpeation.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D8682A256B539000909ACD /* attackOpeation.png */; };
 		04D8682D256B539000909ACD /* skillOpeation.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D8682B256B539000909ACD /* skillOpeation.png */; };
 		04D86835256B6C0500909ACD /* WDStartScene.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D86834256B6C0500909ACD /* WDStartScene.png */; };
 		04D86838256B8B9A00909ACD /* Shadow1.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D86836256B8B9A00909ACD /* Shadow1.png */; };
 		04D86839256B8B9A00909ACD /* Shadow2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D86837256B8B9A00909ACD /* Shadow2.png */; };
-		04D8683B256BA9D300909ACD /* npc1_move.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D8683A256BA9D300909ACD /* npc1_move.png */; };
 		04D8683E256BAFA200909ACD /* WDCorridor1Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8683D256BAFA200909ACD /* WDCorridor1Scene.m */; };
 		04D86840256BAFB100909ACD /* WDCorridor1Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 04D8683F256BAFB100909ACD /* WDCorridor1Scene.sks */; };
 		04D86843256BB46D00909ACD /* UIImage+CacheImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D86842256BB46D00909ACD /* UIImage+CacheImage.m */; };
@@ -36,6 +39,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04D2663B256C9E3500EA6837 /* user_move.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_move.png; sourceTree = "<group>"; };
+		04D2663C256C9E3600EA6837 /* npc1_move.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = npc1_move.png; sourceTree = "<group>"; };
+		04D26654256CB84A00EA6837 /* chest1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chest1.png; sourceTree = "<group>"; };
+		04D26655256CB84A00EA6837 /* chest2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chest2.png; sourceTree = "<group>"; };
+		04D2665A256CCEF300EA6837 /* WDCorridor1Scene.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WDCorridor1Scene.png; sourceTree = "<group>"; };
 		04D867E5256B412700909ACD /* DeathDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeathDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D867E8256B412700909ACD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04D867E9256B412700909ACD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -61,13 +69,11 @@
 		04D86819256B491800909ACD /* WDStartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WDStartScene.sks; sourceTree = "<group>"; };
 		04D8681E256B4B3500909ACD /* WDUserInformation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDUserInformation.h; sourceTree = "<group>"; };
 		04D8681F256B4B3500909ACD /* WDUserInformation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDUserInformation.m; sourceTree = "<group>"; };
-		04D86827256B531D00909ACD /* user_move.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_move.png; sourceTree = "<group>"; };
 		04D8682A256B539000909ACD /* attackOpeation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = attackOpeation.png; sourceTree = "<group>"; };
 		04D8682B256B539000909ACD /* skillOpeation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skillOpeation.png; sourceTree = "<group>"; };
 		04D86834256B6C0500909ACD /* WDStartScene.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WDStartScene.png; sourceTree = "<group>"; };
 		04D86836256B8B9A00909ACD /* Shadow1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shadow1.png; sourceTree = "<group>"; };
 		04D86837256B8B9A00909ACD /* Shadow2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shadow2.png; sourceTree = "<group>"; };
-		04D8683A256BA9D300909ACD /* npc1_move.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = npc1_move.png; sourceTree = "<group>"; };
 		04D8683C256BAFA200909ACD /* WDCorridor1Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDCorridor1Scene.h; sourceTree = "<group>"; };
 		04D8683D256BAFA200909ACD /* WDCorridor1Scene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDCorridor1Scene.m; sourceTree = "<group>"; };
 		04D8683F256BAFB100909ACD /* WDCorridor1Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WDCorridor1Scene.sks; sourceTree = "<group>"; };
@@ -92,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04D26653256CB81500EA6837 /* WDChestImages */ = {
+			isa = PBXGroup;
+			children = (
+				04D26654256CB84A00EA6837 /* chest1.png */,
+				04D26655256CB84A00EA6837 /* chest2.png */,
+			);
+			path = WDChestImages;
+			sourceTree = "<group>";
+		};
 		04D867DC256B412700909ACD = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				04D86834256B6C0500909ACD /* WDStartScene.png */,
+				04D2665A256CCEF300EA6837 /* WDCorridor1Scene.png */,
 			);
 			path = WDSceneImages;
 			sourceTree = "<group>";
@@ -203,6 +219,7 @@
 		04D86823256B52F600909ACD /* WDPersonImages */ = {
 			isa = PBXGroup;
 			children = (
+				04D26653256CB81500EA6837 /* WDChestImages */,
 				04D86824256B530A00909ACD /* WDUser */,
 			);
 			path = WDPersonImages;
@@ -211,10 +228,10 @@
 		04D86824256B530A00909ACD /* WDUser */ = {
 			isa = PBXGroup;
 			children = (
-				04D8683A256BA9D300909ACD /* npc1_move.png */,
+				04D2663C256C9E3600EA6837 /* npc1_move.png */,
+				04D2663B256C9E3500EA6837 /* user_move.png */,
 				04D86836256B8B9A00909ACD /* Shadow1.png */,
 				04D86837256B8B9A00909ACD /* Shadow2.png */,
-				04D86827256B531D00909ACD /* user_move.png */,
 			);
 			path = WDUser;
 			sourceTree = "<group>";
@@ -306,17 +323,20 @@
 			files = (
 				04D8682D256B539000909ACD /* skillOpeation.png in Resources */,
 				04D86840256BAFB100909ACD /* WDCorridor1Scene.sks in Resources */,
+				04D2663E256C9E3600EA6837 /* npc1_move.png in Resources */,
 				04D867F7256B412700909ACD /* Main.storyboard in Resources */,
 				04D86835256B6C0500909ACD /* WDStartScene.png in Resources */,
+				04D2665B256CCEF300EA6837 /* WDCorridor1Scene.png in Resources */,
+				04D26657256CB84A00EA6837 /* chest2.png in Resources */,
 				04D8681A256B491800909ACD /* WDStartScene.sks in Resources */,
 				04D867F9256B412B00909ACD /* Assets.xcassets in Resources */,
 				04D8682C256B539000909ACD /* attackOpeation.png in Resources */,
 				04D867FC256B412C00909ACD /* LaunchScreen.storyboard in Resources */,
 				04D86839256B8B9A00909ACD /* Shadow2.png in Resources */,
-				04D8683B256BA9D300909ACD /* npc1_move.png in Resources */,
-				04D86828256B531D00909ACD /* user_move.png in Resources */,
+				04D2663D256C9E3600EA6837 /* user_move.png in Resources */,
 				04D867EE256B412700909ACD /* Actions.sks in Resources */,
 				04D86838256B8B9A00909ACD /* Shadow1.png in Resources */,
+				04D26656256CB84A00EA6837 /* chest1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

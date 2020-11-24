@@ -39,4 +39,14 @@
            subImageCount:(NSInteger)count
                    image:(UIImage *)image;
 
+
+
+/// frame:按区域切分,其他同上
++ (NSArray *)arrWithLine:(NSInteger)line
+                 arrange:(NSInteger)arrange
+               imageSize:(CGSize)imageSize
+           subImageCount:(NSInteger)count
+                   image:(UIImage *)image
+           curImageFrame:(CGRect)frame;
+
 @end

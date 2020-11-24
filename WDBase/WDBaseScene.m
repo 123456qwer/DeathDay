@@ -22,6 +22,8 @@
     
     [self setPerson];
 
+    //创建背景视图下的子node
+    [self setBgChildNodePhybody];
     
     [self performSelector:@selector(canMoveA) withObject:nil afterDelay:0.8];
 }
@@ -118,6 +120,9 @@
     
     _moveLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(moveAction)];
     [_moveLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    
+    
+
 }
 
 - (void)canMoveA{
@@ -130,7 +135,6 @@
     if (!self.canGo) {
         return;
     }
-    //NSLog(@"%@",direction);
     
     if (!direction) {
         direction = @"up";
@@ -206,6 +210,17 @@
     node.physicsBody = body;
 }
 
+- (void)setContactWallPhysicyBody:(SKSpriteNode *)node
+{
+    SKPhysicsBody *body = [SKPhysicsBody bodyWithRectangleOfSize:node.size];
+    body.allowsRotation = NO;
+    body.affectedByGravity = NO;
+    body.categoryBitMask = WALL_CATEGORY;
+    body.collisionBitMask = WALL_COLLISION;
+    body.contactTestBitMask = MONSTER_CONTACT;
+    node.physicsBody = body;
+}
+
 - (void)setMonsterPhysicyBody:(SKSpriteNode *)node
 {
     SKPhysicsBody *body = [SKPhysicsBody bodyWithRectangleOfSize:node.size];
@@ -222,6 +237,12 @@
 {
     SKSpriteNode *childNode = (SKSpriteNode *)[self.bgNode childNodeWithName:name];
     return childNode;
+}
+
+
+/// 子类实现
+- (void)setBgChildNodePhybody
+{
 }
 
 - (void)releaseAction

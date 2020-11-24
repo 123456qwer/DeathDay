@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WDCorridor1Scene : WDBaseScene
-
+@property (nonatomic,strong)SKLightNode *light;
 @end
 
 NS_ASSUME_NONNULL_END

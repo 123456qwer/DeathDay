@@ -196,6 +196,48 @@
 }
 
 + (NSArray *)arrWithLine:(NSInteger)line
+                 arrange:(NSInteger)arrange
+               imageSize:(CGSize)imageSize
+           subImageCount:(NSInteger)count
+                   image:(UIImage *)image
+           curImageFrame:(CGRect)frame{
+    
+    UIImage *passImage = [UIImage imageNamed:@"chest1"];
+    CGImageRef imageRef1 = [passImage CGImage];
+
+    
+    CGImageRef subImage = CGImageCreateWithImageInRect(imageRef1, frame);
+    UIImage *curImage = [UIImage imageWithCGImage:subImage];
+    
+    CGImageRef imageRef = [curImage CGImage];
+    
+    CGFloat width = imageSize.height / (CGFloat)line;
+    CGFloat height = imageSize.width / (CGFloat)arrange;
+    
+    NSMutableArray *imagesArr = [NSMutableArray arrayWithCapacity:count];
+    for (NSInteger i = 0; i < count; i ++) {
+           
+        CGFloat x = i % arrange * width;
+        CGFloat y = i / arrange * height;
+       
+        CGRect frame = CGRectMake(x, y, width, height);
+        CGImageRef subImage = CGImageCreateWithImageInRect(imageRef, frame);
+        UIImage *newImage = [UIImage imageWithCGImage:subImage];
+        SKTexture *texture = [SKTexture textureWithImage:newImage];
+        [imagesArr addObject:texture];
+           
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //CGImageRelease(subImage);
+        });
+
+    }
+    
+    
+    return imagesArr;
+    
+}
+
++ (NSArray *)arrWithLine:(NSInteger)line
                       arrange:(NSInteger)arrange
                     imageSize:(CGSize)imageSize
                 subImageCount:(NSInteger)count

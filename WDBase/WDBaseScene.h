@@ -13,6 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WDBaseScene : SKScene<SKPhysicsContactDelegate>
 
 
+
+/// 如果是死亡回到初始位置，那么位置为之前设置的start
+@property (nonatomic,assign)BOOL isDeadtToStartScene;
+
 /// 背景图片
 @property (nonatomic,strong)WDBaseNode *bgNode;
 /// 玩家
@@ -50,11 +54,19 @@ NS_ASSUME_NONNULL_BEGIN
 - (SKSpriteNode *)nodeWithNodeName:(NSString *)name;
 
 
+/// 根据当前场景初始化场景子视图的物理属性
+- (void)setBgChildNodePhybody;
+
 /// 创建门Node
 - (void)createDoorNodeWithName:(NSString *)name;
 
 /// 设置物理属性，墙体类,无碰撞检测回调
 - (void)setWallPhysicyBody:(SKSpriteNode *)node;
+
+
+/// 设置物理属性，墙体类,有碰撞检测回调
+- (void)setContactWallPhysicyBody:(SKSpriteNode *)node;
+
 
 /// 设置物理属性，怪物等有碰撞检测回调
 - (void)setMonsterPhysicyBody:(SKSpriteNode *)node;
