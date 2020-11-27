@@ -12,6 +12,19 @@
 		04D26656256CB84A00EA6837 /* chest1.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D26654256CB84A00EA6837 /* chest1.png */; };
 		04D26657256CB84A00EA6837 /* chest2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D26655256CB84A00EA6837 /* chest2.png */; };
 		04D2665B256CCEF300EA6837 /* WDCorridor1Scene.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D2665A256CCEF300EA6837 /* WDCorridor1Scene.png */; };
+		04D2E46D2570CB5B00E80F37 /* WDSkillView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2E46B2570CB5B00E80F37 /* WDSkillView.m */; };
+		04D2E46E2570CB5B00E80F37 /* WDSkillOperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2E46C2570CB5B00E80F37 /* WDSkillOperationView.m */; };
+		04D2E4702570E27700E80F37 /* monsterTalk.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D2E46F2570E27700E80F37 /* monsterTalk.png */; };
+		04D2E4762570E52600E80F37 /* Weapons1.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D2E4712570E52500E80F37 /* Weapons1.png */; };
+		04D2E4772570E52600E80F37 /* Balloon.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D2E4722570E52500E80F37 /* Balloon.png */; };
+		04D2E4782570E52600E80F37 /* Weapons2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D2E4732570E52600E80F37 /* Weapons2.png */; };
+		04D2E4792570E52600E80F37 /* Weapons3.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D2E4742570E52600E80F37 /* Weapons3.png */; };
+		04D2E47A2570E52600E80F37 /* States.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D2E4752570E52600E80F37 /* States.png */; };
+		04D2E4802570E55300E80F37 /* WDTextureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2E47F2570E55300E80F37 /* WDTextureManager.m */; };
+		04D2E4832570EE4C00E80F37 /* WDGameLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D2E4822570EE4C00E80F37 /* WDGameLogic.m */; };
+		04D2E4862570F12400E80F37 /* takeImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D2E4842570F12400E80F37 /* takeImage.png */; };
+		04D2E4872570F12400E80F37 /* talkImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D2E4852570F12400E80F37 /* talkImage.png */; };
+		04D2E48B2570FFD400E80F37 /* npc1_face.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D2E48A2570FFD400E80F37 /* npc1_face.png */; };
 		04D867EA256B412700909ACD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D867E9256B412700909ACD /* AppDelegate.m */; };
 		04D867EE256B412700909ACD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 04D867ED256B412700909ACD /* Actions.sks */; };
 		04D867F4256B412700909ACD /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D867F3256B412700909ACD /* GameViewController.m */; };
@@ -44,6 +57,23 @@
 		04D26654256CB84A00EA6837 /* chest1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chest1.png; sourceTree = "<group>"; };
 		04D26655256CB84A00EA6837 /* chest2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chest2.png; sourceTree = "<group>"; };
 		04D2665A256CCEF300EA6837 /* WDCorridor1Scene.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WDCorridor1Scene.png; sourceTree = "<group>"; };
+		04D2E4692570CB5B00E80F37 /* WDSkillView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDSkillView.h; sourceTree = "<group>"; };
+		04D2E46A2570CB5B00E80F37 /* WDSkillOperationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDSkillOperationView.h; sourceTree = "<group>"; };
+		04D2E46B2570CB5B00E80F37 /* WDSkillView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDSkillView.m; sourceTree = "<group>"; };
+		04D2E46C2570CB5B00E80F37 /* WDSkillOperationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDSkillOperationView.m; sourceTree = "<group>"; };
+		04D2E46F2570E27700E80F37 /* monsterTalk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monsterTalk.png; sourceTree = "<group>"; };
+		04D2E4712570E52500E80F37 /* Weapons1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Weapons1.png; sourceTree = "<group>"; };
+		04D2E4722570E52500E80F37 /* Balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Balloon.png; sourceTree = "<group>"; };
+		04D2E4732570E52600E80F37 /* Weapons2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Weapons2.png; sourceTree = "<group>"; };
+		04D2E4742570E52600E80F37 /* Weapons3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Weapons3.png; sourceTree = "<group>"; };
+		04D2E4752570E52600E80F37 /* States.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = States.png; sourceTree = "<group>"; };
+		04D2E47E2570E55300E80F37 /* WDTextureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDTextureManager.h; sourceTree = "<group>"; };
+		04D2E47F2570E55300E80F37 /* WDTextureManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDTextureManager.m; sourceTree = "<group>"; };
+		04D2E4812570EE4C00E80F37 /* WDGameLogic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDGameLogic.h; sourceTree = "<group>"; };
+		04D2E4822570EE4C00E80F37 /* WDGameLogic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDGameLogic.m; sourceTree = "<group>"; };
+		04D2E4842570F12400E80F37 /* takeImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = takeImage.png; sourceTree = "<group>"; };
+		04D2E4852570F12400E80F37 /* talkImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = talkImage.png; sourceTree = "<group>"; };
+		04D2E48A2570FFD400E80F37 /* npc1_face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = npc1_face.png; sourceTree = "<group>"; };
 		04D867E5256B412700909ACD /* DeathDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeathDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D867E8256B412700909ACD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04D867E9256B412700909ACD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -157,6 +187,10 @@
 				04D86808256B461200909ACD /* WDCalculateTool.m */,
 				04D8681E256B4B3500909ACD /* WDUserInformation.h */,
 				04D8681F256B4B3500909ACD /* WDUserInformation.m */,
+				04D2E47E2570E55300E80F37 /* WDTextureManager.h */,
+				04D2E47F2570E55300E80F37 /* WDTextureManager.m */,
+				04D2E4812570EE4C00E80F37 /* WDGameLogic.h */,
+				04D2E4822570EE4C00E80F37 /* WDGameLogic.m */,
 			);
 			name = WDTool;
 			path = DeathDay/WDTool;
@@ -165,6 +199,10 @@
 		04D86806256B440400909ACD /* WDOpeartionView */ = {
 			isa = PBXGroup;
 			children = (
+				04D2E46A2570CB5B00E80F37 /* WDSkillOperationView.h */,
+				04D2E46C2570CB5B00E80F37 /* WDSkillOperationView.m */,
+				04D2E4692570CB5B00E80F37 /* WDSkillView.h */,
+				04D2E46B2570CB5B00E80F37 /* WDSkillView.m */,
 				04D8680B256B461A00909ACD /* WDMoveOpeartionView.h */,
 				04D8680C256B461A00909ACD /* WDMoveOpeartionView.m */,
 			);
@@ -228,8 +266,15 @@
 		04D86824256B530A00909ACD /* WDUser */ = {
 			isa = PBXGroup;
 			children = (
+				04D2E4722570E52500E80F37 /* Balloon.png */,
+				04D2E4752570E52600E80F37 /* States.png */,
+				04D2E4712570E52500E80F37 /* Weapons1.png */,
+				04D2E4732570E52600E80F37 /* Weapons2.png */,
+				04D2E4742570E52600E80F37 /* Weapons3.png */,
+				04D2E46F2570E27700E80F37 /* monsterTalk.png */,
 				04D2663C256C9E3600EA6837 /* npc1_move.png */,
 				04D2663B256C9E3500EA6837 /* user_move.png */,
+				04D2E48A2570FFD400E80F37 /* npc1_face.png */,
 				04D86836256B8B9A00909ACD /* Shadow1.png */,
 				04D86837256B8B9A00909ACD /* Shadow2.png */,
 			);
@@ -239,6 +284,8 @@
 		04D86829256B537000909ACD /* WDOperationImages */ = {
 			isa = PBXGroup;
 			children = (
+				04D2E4842570F12400E80F37 /* takeImage.png */,
+				04D2E4852570F12400E80F37 /* talkImage.png */,
 				04D8682A256B539000909ACD /* attackOpeation.png */,
 				04D8682B256B539000909ACD /* skillOpeation.png */,
 			);
@@ -323,18 +370,27 @@
 			files = (
 				04D8682D256B539000909ACD /* skillOpeation.png in Resources */,
 				04D86840256BAFB100909ACD /* WDCorridor1Scene.sks in Resources */,
+				04D2E48B2570FFD400E80F37 /* npc1_face.png in Resources */,
 				04D2663E256C9E3600EA6837 /* npc1_move.png in Resources */,
+				04D2E4792570E52600E80F37 /* Weapons3.png in Resources */,
 				04D867F7256B412700909ACD /* Main.storyboard in Resources */,
 				04D86835256B6C0500909ACD /* WDStartScene.png in Resources */,
 				04D2665B256CCEF300EA6837 /* WDCorridor1Scene.png in Resources */,
 				04D26657256CB84A00EA6837 /* chest2.png in Resources */,
 				04D8681A256B491800909ACD /* WDStartScene.sks in Resources */,
+				04D2E4772570E52600E80F37 /* Balloon.png in Resources */,
 				04D867F9256B412B00909ACD /* Assets.xcassets in Resources */,
+				04D2E4762570E52600E80F37 /* Weapons1.png in Resources */,
 				04D8682C256B539000909ACD /* attackOpeation.png in Resources */,
 				04D867FC256B412C00909ACD /* LaunchScreen.storyboard in Resources */,
+				04D2E4862570F12400E80F37 /* takeImage.png in Resources */,
+				04D2E4872570F12400E80F37 /* talkImage.png in Resources */,
+				04D2E4702570E27700E80F37 /* monsterTalk.png in Resources */,
+				04D2E4782570E52600E80F37 /* Weapons2.png in Resources */,
 				04D86839256B8B9A00909ACD /* Shadow2.png in Resources */,
 				04D2663D256C9E3600EA6837 /* user_move.png in Resources */,
 				04D867EE256B412700909ACD /* Actions.sks in Resources */,
+				04D2E47A2570E52600E80F37 /* States.png in Resources */,
 				04D86838256B8B9A00909ACD /* Shadow1.png in Resources */,
 				04D26656256CB84A00EA6837 /* chest1.png in Resources */,
 			);
@@ -392,12 +448,16 @@
 				04D86818256B48E600909ACD /* WDStartScene.m in Sources */,
 				04D8680A256B461200909ACD /* WDCalculateTool.m in Sources */,
 				04D86820256B4B3500909ACD /* WDUserInformation.m in Sources */,
+				04D2E46E2570CB5B00E80F37 /* WDSkillOperationView.m in Sources */,
 				04D8683E256BAFA200909ACD /* WDCorridor1Scene.m in Sources */,
 				04D867F4256B412700909ACD /* GameViewController.m in Sources */,
+				04D2E4802570E55300E80F37 /* WDTextureManager.m in Sources */,
 				04D867FF256B412C00909ACD /* main.m in Sources */,
 				04D86814256B473600909ACD /* WDBaseScene.m in Sources */,
 				04D86813256B473600909ACD /* WDBaseNode.m in Sources */,
 				04D8680D256B461A00909ACD /* WDMoveOpeartionView.m in Sources */,
+				04D2E4832570EE4C00E80F37 /* WDGameLogic.m in Sources */,
+				04D2E46D2570CB5B00E80F37 /* WDSkillView.m in Sources */,
 				04D867EA256B412700909ACD /* AppDelegate.m in Sources */,
 				04D86846256BB54300909ACD /* SKSpriteNode+WDDelloc.m in Sources */,
 				04D86843256BB46D00909ACD /* UIImage+CacheImage.m in Sources */,

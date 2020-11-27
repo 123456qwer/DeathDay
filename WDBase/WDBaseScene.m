@@ -254,6 +254,11 @@
 }
 
 
+/// 子类实现
+- (void)attackBtnClick
+{
+    
+}
 
 
 

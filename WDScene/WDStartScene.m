@@ -13,12 +13,14 @@
     WDBaseNode *_npcNode;
     NSMutableDictionary *_npcMoveDic;
     NSTimer *_observeUserTimer;
-    
+    CGFloat fff;
 }
 
 - (void)didMoveToView:(SKView *)view
 {
     [super didMoveToView:view];
+    
+    [[WDUserInformation shareUserInfoManager] setUserSpeed:4];
     
     self.personNode.xScale = 1.1;
     self.personNode.yScale = 1.1;
@@ -40,7 +42,10 @@
         self.personNode.position = startNode2.position;
         self.personNode.texture = self.personNode.moveDic[@"up"][0];
     }
+    
+   
 }
+
 
 - (void)setBgChildNodePhybody{
     
@@ -53,18 +58,21 @@
         node.alpha = 0;
         [self setContactWallPhysicyBody:node];
     }
-   
+       
 }
 
 
 - (void)createNpcNode{
-    
+        
     _npcNode = [WDBaseNode spriteNodeWithName:@"npc1"];
     _npcNode.xScale = 1.1;
     _npcNode.yScale = 1.1;
     _npcNode.name = @"npc1";
     [self.bgNode addChild:_npcNode];
+    
     [_npcNode addShadow1];
+    [_npcNode setBalloonWithLine:8];
+    [self setMonsterPhysicyBody:_npcNode];
     
     if (self.isDeadtToStartScene) {
         SKSpriteNode *door = (SKSpriteNode *)[self.bgNode childNodeWithName:@"door1"];
@@ -149,24 +157,79 @@
 {
     WDBaseNode *bodyA = (WDBaseNode *)contact.bodyA.node;
     WDBaseNode *bodyB = (WDBaseNode *)contact.bodyB.node;
+   
+    NSString *A = bodyA.name;
+    NSString *B = bodyB.name;
+   
+   
+    //玩家碰到出口，切换区域
+    if ([A isEqualToString:@"person"]&&[B isEqualToString:@"door1"]) {
+        [WDGameLogic changeSceneWithName:@"WDCorridor1Scene"];
+    }
+   
+    if ([A isEqualToString:@"person"]&&[B isEqualToString:@"npc1"]) {
+        [WDGameLogic changeAttackButtonWithImage:[UIImage imageNamed:@"talkImage"]];
+        self.isTalk = YES;
+    }
+    
+    NSLog(@"A:%@ B:%@ 发生碰撞了~",bodyA.name,bodyB.name);
+}
+
+- (void)didEndContact:(SKPhysicsContact *)contact
+{
+    WDBaseNode *bodyA = (WDBaseNode *)contact.bodyA.node;
+    WDBaseNode *bodyB = (WDBaseNode *)contact.bodyB.node;
     
     NSString *A = bodyA.name;
     NSString *B = bodyB.name;
     
     
-    //玩家碰到出口，切换区域
-    if ([A isEqualToString:@"person"]&&[B isEqualToString:@"door1"]) {
-        if (self.changeMapWithMapName) {
-            self.changeMapWithMapName(@"WDCorridor1Scene");
-        }
+    if ([A isEqualToString:@"person"]&&[B isEqualToString:@"npc1"]) {
+        [WDGameLogic changeAttackButtonWithImage:[UIImage imageNamed:@"attackOpeation"]];
+        self.isTalk = NO;
+        
+        WDBaseNode *node = (WDBaseNode *)[self childNodeWithName:@"talk"];
+        [node removeFromParent];
     }
     
-    
-    NSLog(@"A:%@ B:%@",bodyA.name,bodyB.name);
+    NSLog(@"A:%@ B:%@ 碰撞完毕了~",bodyA.name,bodyB.name);
 }
 
-- (void)didEndContact:(SKPhysicsContact *)contact
+
+- (void)attackBtnClick
 {
+    
+    if (self.isTalk) {
+        WDBaseNode *talk = (WDBaseNode *)[self childNodeWithName:@"talk"];
+        if (talk) {
+            return;
+        }
+        NSLog(@"今天天气不错啊~");
+        WDBaseNode *node = [[WDBaseNode alloc]initWithColor:[UIColor whiteColor] size:CGSizeMake(self.size.width, self.size.height / 3.0)];
+        node.anchorPoint = CGPointMake(0, 0);
+        node.name = @"talk";
+        [self addChild:node];
+        
+      
+        WDBaseNode *faceNode = [WDBaseNode spriteNodeWithTexture:_npcNode.faceTexture];
+        faceNode.anchorPoint = CGPointMake(0, 0);
+        faceNode.position = CGPointMake(50, 0);
+        [node addChild:faceNode];
+        
+        CGFloat scale = node.size.height / faceNode.size.height;
+        
+        faceNode.xScale = scale;
+        faceNode.yScale = scale;
+        
+        SKLabelNode *nodeL = [SKLabelNode labelNodeWithText:@"今天天气不错啊~"];
+        nodeL.fontSize = 100;
+        nodeL.color = [UIColor orangeColor];
+        nodeL.fontColor = [SKColor blackColor];
+        [node addChild:nodeL];
+        nodeL.position = CGPointMake(faceNode.position.x + faceNode.size.width * 2.0 + nodeL.fontSize, 50);
+        
+        [_npcNode removeBalloon];
+    }
     
 }
 

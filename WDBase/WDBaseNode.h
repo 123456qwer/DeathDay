@@ -20,12 +20,21 @@ NS_ASSUME_NONNULL_BEGIN
 /// 人物移动
 @property (nonatomic,strong)NSMutableDictionary *moveDic;
 
+@property (nonatomic,strong)SKTexture *faceTexture;
+
+/// 表情
+@property (nonatomic,strong)WDBaseNode *balloonNode;
+@property (nonatomic,copy)NSArray *balloonArr;
 
 /// 初始化人物：提供人物前缀 比如 user_xxx; 提供user
 + (WDBaseNode *)spriteNodeWithName:(NSString *)name;
-
 - (void)realBackGroundWithColor:(UIColor *)color;
 - (void)addShadow1;
+
+
+/// 设置人物头顶表情
+- (void)setBalloonWithLine:(NSInteger)line;
+- (void)removeBalloon;
 
 @end
 

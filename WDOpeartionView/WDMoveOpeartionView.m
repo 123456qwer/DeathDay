@@ -126,7 +126,7 @@
            }
            
            //速度获取统一用全局管理
-           CGFloat speed = 5;
+           CGFloat speed = [[WDUserInformation shareUserInfoManager]userSpeed];
            NSDictionary *dic = [WDCalculateTool calculateDirection:location point:_startPoint speed:speed];
            
            _direction = dic[@"direction"];
@@ -174,7 +174,7 @@
         }
         
         //速度获取统一用全局管理
-        CGFloat speed = 7;
+        CGFloat speed = [[WDUserInformation shareUserInfoManager]userSpeed];
         NSDictionary *dic = [WDCalculateTool calculateDirection:location point:_startPoint speed:speed];
         
         _direction = dic[@"direction"];

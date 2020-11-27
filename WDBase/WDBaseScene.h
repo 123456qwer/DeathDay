@@ -12,10 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WDBaseScene : SKScene<SKPhysicsContactDelegate>
 
-
-
 /// 如果是死亡回到初始位置，那么位置为之前设置的start
 @property (nonatomic,assign)BOOL isDeadtToStartScene;
+
+/// 聊天状态
+@property (nonatomic,assign)BOOL isTalk;
 
 /// 背景图片
 @property (nonatomic,strong)WDBaseNode *bgNode;
@@ -46,6 +47,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 人物行走
 - (void)moveActionWithDirection:(NSString *)direction
                        position:(CGPoint)point;
+
+
+/// 攻击键点击
+- (void)attackBtnClick;
+
 
 
 

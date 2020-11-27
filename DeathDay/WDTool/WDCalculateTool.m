@@ -202,8 +202,8 @@
                    image:(UIImage *)image
            curImageFrame:(CGRect)frame{
     
-    UIImage *passImage = [UIImage imageNamed:@"chest1"];
-    CGImageRef imageRef1 = [passImage CGImage];
+   // UIImage *passImage = [UIImage imageNamed:@"chest1"];
+    CGImageRef imageRef1 = [image CGImage];
 
     
     CGImageRef subImage = CGImageCreateWithImageInRect(imageRef1, frame);

@@ -15,29 +15,18 @@
 {
     [super didMoveToView:view];
     
+    [[WDUserInformation shareUserInfoManager]setUserSpeed:5];
+
+    
     self.personNode.xScale = 1.6;
     self.personNode.yScale = 1.6;
     
-   
-
-    self.light = [[SKLightNode alloc] init];
-    self.light.categoryBitMask = 0;
-    self.light.falloff = 1;
-    self.light.ambientColor = [UIColor whiteColor];
-    self.light.lightColor  = [UIColor whiteColor];
-    self.light.shadowColor = [UIColor blackColor];
-    self.light.zPosition = 200;
-
-    [self.bgNode addChild:self.light];
-    
     self.bgNode.lightingBitMask = 1;
-    self.personNode.shadowCastBitMask = 1;
-//    SKSpriteNode *node = [[SKSpriteNode alloc] initWithColor:[UIColor blackColor] size:self.bgNode.size];
-//    node.position = CGPointMake(0, 0);
-//    node.zPosition = 1000000;
-//    node.alpha = 0.8;
-//    node.anchorPoint = CGPointMake(0, 0);
-//    [self.bgNode addChild:node];
+    self.personNode.lightingBitMask = 1;
+}
+
+- (void)aaaaaa{
+    
 }
 
 - (void)setBgChildNodePhybody

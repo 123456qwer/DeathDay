@@ -20,13 +20,27 @@
 #define NSLog(...) {}
 #endif
 
+#define IS_IPHONEX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size)||CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size)||CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size)||CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size)) : NO)
+
+#define IS_IPHONE_5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size)) : NO)
+
+
+#pragma mark - 通知 -
+
+/// 跳转其他场景
+#define kNotificationForChangeScene @"kNotificationForChangeScene"
+/// 改变攻击按钮的图片
+#define kNotificationForChangeAttackBtn @"kNotificationForChangeAttackBtn"
 
 
 ///引入
 #import "WDCalculateTool.h"     //计算数据
 #import "WDUserInformation.h"   //存储玩家数据
 #import <UIKit/UIKit.h>
-
+#import <UIViewExt/UIViewExt.h>
+#import "WDTextureManager.h"
+#import <SpriteKit/SpriteKit.h>
+#import "WDGameLogic.h"   //游戏中，物理碰撞逻辑相关
 
 #pragma mark 物理运算类别掩码
 //body.categoryBitMask = 0;  <类别掩码，为0时代表我谁也碰撞不了>
@@ -52,5 +66,15 @@ static const uint32_t WALL_CATEGORY  = 0x04; //0100
 static const uint32_t WALL_COLLISION = 0x00; //0011
 static const uint32_t WALL_CONTACT   = 0x00; //0001
 
+
+typedef NS_ENUM(NSUInteger, SkillType) {
+    
+    topSkillBtn = 0,
+    middleSkillBtn,
+    bottomSkillBtn,
+    bottom2SkillBtn,
+    changeScene,
+    
+};
 
 #endif /* WDPCH_pch */
